@@ -10,7 +10,7 @@
 —— V.S.奈保尔">
 <meta name="theme-color" content="#000">
 <title>Parallel Field</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1612789444319">
+<link rel="shortcut icon" href="/favicon.ico?v=1612789475558">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -184,12 +184,7 @@
     
     <div class="site-description right-motion">
       
-      
-      
-        <p>我看到世界在流动，人的生命是一系列偶尔交织在一起的轮回。 </p>
-      
-        <p>—— V.S.奈保尔</p>
-      
+        <p id="binft">我看到世界在流动，人的生命是一系列偶尔交织在一起的轮回。 \n—— V.S.奈保尔</p>
       
     </div>
     
@@ -246,7 +241,7 @@
         
           
             <a class="social-img" href="#">
-              <img src="\media\images\custom-array-imgSocials-1612789444035-socialImg.jpg" />
+              <img src="\media\images\custom-array-imgSocials-1612789475276-socialImg.jpg" />
               <i class="fa fa-wechat" title="微信" ></i>
             </a>
           
@@ -256,6 +251,11 @@
   
 
 
+
+  <div style="width: 100%; position: relative;">
+    <canvas id="canvasDiyBlock" style="width:100%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+    <script src="/media/js/magic/clock.js"></script>
+  </div>
 
 </div>
 </div>
@@ -1441,7 +1441,20 @@
 <script src="/media/js/mouse/love.js"></script>
 
 
+<script src="/media/js/cool.js"></script>
 
+
+
+  <div class="snow-container"></div>
+  <script src="/media/js/bg/canvas-nest.js"></script>
+  <script>
+  const config = {
+    color: '255,0,0',
+    count: 88,
+  };
+  // Using config rendering effect at 'element'.
+  const cn = new CanvasNest(document.querySelector('.snow-container'), config);
+  </script>
 
 
 </html>
