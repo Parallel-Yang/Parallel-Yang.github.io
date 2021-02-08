@@ -10,7 +10,7 @@
 —— V.S.奈保尔">
 <meta name="theme-color" content="#000">
 <title>Parallel Field</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1612789258816">
+<link rel="shortcut icon" href="/favicon.ico?v=1612789444319">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -244,7 +244,7 @@
         
           
             <a class="social-img" href="#">
-              <img src="\media\images\custom-array-imgSocials-1612789258527-socialImg.jpg" />
+              <img src="\media\images\custom-array-imgSocials-1612789444035-socialImg.jpg" />
               <i class="fa fa-wechat" title="微信" ></i>
             </a>
           
@@ -253,10 +253,6 @@
     </div>
   
 
-
-  <div class="sidebar-item">
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=2662399390&auto=1&height=430"></iframe>
-  </div>
 
 
 </div>
@@ -421,11 +417,15 @@
         <div class="live_ico_item type_info" id="showInfoBtn"></div>
         <div class="live_ico_item type_talk" id="showTalkBtn"></div>
         
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        
         <div class="live_ico_item type_youdu" id="youduButton"></div>
         <div class="live_ico_item type_quit" id="hideButton"></div>
         <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
         <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
         <input id="duType" value="douqilai" type="hidden">
+        
+        <input name="live2dBGM" value="" type="hidden">
         
       </div>
     
@@ -938,6 +938,45 @@
   
   
   
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div class="aplayer" id="aplayer"></div>
+  <script>
+  let musics = JSON.parse('[{"author":"Candy_Wind","cover":"","lrc":"","musicLink":"","musicName":"Against The God"}]');
+  let mediaMusic = [];
+  for (let i = 0; i < musics.length; i++) {
+    let item = musics[i];
+    mediaMusic.push({
+      name: item.musicName,
+      artist: item.author,
+      url: item.musicLink,
+      lrc: item.lrc,
+      cover: item.cover
+    });
+  }
+
+  const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      lrcType: 3,
+      listFolded: false,
+      listMaxHeight: 90,
+      audio: mediaMusic
+  });
+  window.addEventListener('load', function() {
+    let postBody = document.querySelector('#post_body');
+    let hs = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+    postBody && hs.forEach(h => {
+      let helems = postBody.querySelectorAll(h);
+      if (helems.length > 0) {
+        helems.forEach(elem => {
+          elem.id = encodeURI(elem.id);
+        })
+      }
+    })
+  })
+  </script>
+
 
   
 </div>
@@ -1441,13 +1480,6 @@
 </script>
 <script src="/media/js/motion.js"></script>
 
-
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-<script>
-  var scroll = new SmoothScroll('a[href*="#"]', {
-    speed: 200
-  });
-</script>
 
 
 <script src="/media/js/mouse/love.js"></script>
